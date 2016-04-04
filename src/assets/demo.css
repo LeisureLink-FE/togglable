@@ -1,0 +1,19 @@
+.content {
+  transition: all .25s linear;
+  overflow: hidden;
+}
+
+.togglable::before,
+.untogglable::before {
+  font-style: italic;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.untogglable::before {
+  content: 'Before toggler: ';
+}
+
+.togglable::before {
+  content: 'After toggler: ';
+}
