@@ -1,5 +1,5 @@
 {
-    "name": "toggler",
+    "name": "togglable",
     "version": "1.0.0",
     "description": "",
     "main": "src/index.js",
@@ -19,8 +19,8 @@
     "keywords": [
         "react-component"
     ],
-    "contributors": [
-        "Jared Anderson <jared.anderson@ldschurch.org"
+    "author": [
+        "Cory Brown <cbrown@leisurelink.com"
     ],
     "license": "ICS",
     "devDependencies": {
