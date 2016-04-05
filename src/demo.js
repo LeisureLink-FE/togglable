@@ -1,11 +1,13 @@
-import { Component, createClass } from 'react';
+import { createClass } from 'react';
 import Togglable from './index.js';
 import demoStyle from './assets/demo.css';
-import cn from 'classnames';
 
+const Untogglable = ({className}) => (<span className={className}>Just a normal p tag.</span>);
 const PTag = () => (<span>Click me with your console open.</span>);
 const TogglableP = Togglable(PTag);
-const Untogglable = ({className}) => (<span className={className}>Just a normal p tag.</span>);
+
+const P2 = () => (<span>Initially toggled.</span>);
+const TogglableP2 = Togglable(P2);
 
 const DrawerTrigger = Togglable( (props) => (<h2 key={Math.random()}>{props.children}</h2>) );
 const DrawerContent  = Togglable( ({toggled, children}) => (
@@ -50,14 +52,20 @@ export default (
         <Untogglable className={demoStyle.untogglable} />
         <hr />
         <TogglableP
-            className={cn(demoStyle.toggler, demoStyle.togglable)}
+            className={demoStyle.togglable}
+            onToggle={(e) => { console.log(e) }}
+        />
+        <hr />
+        <TogglableP2
+            className={demoStyle.togglable}
+            initialToggled
             onToggle={(e) => { console.log(e) }}
         />
       </div>
     </div>
     <hr />
     <div className="drawerDemo">
-      <h1>Implementing a `Drawer` with `Toggler`</h1>
+      <h1>Implementing a `Drawer` with `Togglable`</h1>
       <pre>
         <code>
           {

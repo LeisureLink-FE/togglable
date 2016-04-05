@@ -1,13 +1,20 @@
 import { createClass } from 'react';
 
 export default (Untogglable) => createClass({
-  getInitialState() {
-    return { toggled: this.props.initialToggled }
+  getDefaultProps() {
+    return {
+      onToggle: ()=>{}
+    }
   },
 
-  handleToggle(e) {
-    this.props.onToggle({toggled: !this.state.toggled});
-    this.setState({toggled: e.target.checked});
+  getInitialState() {
+    return { toggled: !!this.props.initialToggled }
+  },
+
+  handleToggle() {
+    const newToggledState = !this.state.toggled;
+    this.setState({toggled: newToggledState});
+    this.props.onToggle({toggled: newToggledState});
   },
 
   render() {
@@ -23,4 +30,4 @@ export default (Untogglable) => createClass({
       </label>
     );
   }
-})
+});
